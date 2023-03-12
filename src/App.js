@@ -1,56 +1,60 @@
-import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./component/Layout/Layout";
+import AccessCode from "./pages/auth/AccessCode";
+import Forgot from "./pages/auth/Forgot";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Reset from "./pages/auth/Reset";
+import Verify from "./pages/auth/Verify";
+import Home from "./pages/Home/Home";
+import PageMenu from "./pages/profile/PageMenu";
+import Profile from "./pages/profile/Profile";
 
-import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
-import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
-import './App.css';
+
 
 const App = () => {
-  const [courseGoals, setCourseGoals] = useState([
-    { text: 'Do all exercises!', id: 'g1' },
-    { text: 'Finish the course!', id: 'g2' }
-  ]);
 
-  const addGoalHandler = enteredText => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      return updatedGoals;
-    });
-  };
-
-  const deleteItemHandler = goalId => {
-    setCourseGoals(prevGoals => {
-      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
-      return updatedGoals;
-    });
-  };
-
-  let content = (
-    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-  );
-
-  if (courseGoals.length > 0) {
-    content = (
-      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
-    );
-  }
 
   return (
-    <div>
-      <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
-        {content}
-        {/* {courseGoals.length > 0 && (
-          <CourseGoalList
-            items={courseGoals}
-            onDeleteItem={deleteItemHandler}
-          />
-        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-        } */}
-      </section>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <Layout>
+              <Home />
+            </Layout>
+          } />
+          <Route path="login" element={
+            <Login />
+          } />
+          <Route path="register" element={
+            <Register />
+          } />
+          <Route path="forgot" element={
+            <Forgot />
+          } />
+          <Route path="reset/:resetToken" element={
+            <Reset />
+          } />
+          <Route path="access" element={
+            <AccessCode />
+          } />
+          <Route path="verify/:verificationToken" element={
+            <Layout>
+              <Verify />
+            </Layout>
+          } />
+          <Route path="profile" element={
+            <Profile />
+
+          } />
+          <Route path="pagemenu" element={
+            <PageMenu />
+
+          } />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

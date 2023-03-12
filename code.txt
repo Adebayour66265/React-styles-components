@@ -1,0 +1,74 @@
+    {/* PASSWORD STRENGTH */}
+                        < div className="form__input-group">
+                            <ul className='form-list'>
+                                <li>
+                                    <span className='indicator'>
+                                        {switchIcon(uCase)}
+                                        &nbsp;Lowercase & UpperCase
+                                    </span>
+                                </li>
+                                <li>
+                                    <span className='indicator'>
+                                        {switchIcon(num)}
+                                        &nbsp;Number (0 - 9)
+                                    </span>
+                                </li>
+                                <li>
+                                    <span className='indicator'>
+                                        {switchIcon(sChar)}
+                                        &nbsp;Special Character (!@#$%^&*.)
+                                    </span>
+                                </li>
+                                <li>
+                                    <span className='indicator'>
+                                        {switchIcon(passLength)}
+                                        &nbsp;At least 6 Character
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+
+
+                         useEffect(() => {
+        // Check your Lower or OpperCase
+        // if (password.match(/([a-z].*[A-Z])|(A-Z).*[a-z])/)) {
+        //     setUCase(true);
+        // } else {
+        //     setUCase(false);
+        // }
+        // Check your Number
+        if (password.match(/([0-9])/)) {
+            setNum(true);
+        } else {
+            setNum(false);
+        }
+        // Check your special character
+        if (password.match(/([0!,%,&,@,#,$,^,*,?,_,~])/)) {
+            setSChar(true);
+        } else {
+            setSChar(false);
+        }
+        // Check your PASSWORD Length
+        if (password.lenght > 5) {
+            setPassLength(true);
+        } else {
+            setPassLength(false);
+        }
+    }, [password])
+    const loginUser = () => {
+
+    }
+
+
+
+
+    const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    confirm_Password: '',
+}

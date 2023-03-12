@@ -1,0 +1,52 @@
+@import url(./variable.css);
+
+/* @import url(./animation.css);
+@import url(./medial.css); */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  font: inherit;
+}
+img,
+span,
+a,
+.ion-icon {
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--red-orange-wheel);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--urtramarine-blue);
+}

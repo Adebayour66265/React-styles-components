@@ -1,0 +1,22 @@
+.help-layout nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  background: rgba(214, 32, 102, 0.678);
+  color: #fff;
+  padding: 1rem;
+}
+.help-layout nav a {
+  padding: 10px;
+  border: 2px solid white;
+  cursor: pointer;
+  background: rgba(214, 32, 102, 0.678);
+  border-radius: 4px;
+}
+.help-layout nav a:hover {
+  background-color: brown;
+}
+.help-layout nav a:active {
+  background-color: coral;
+}
